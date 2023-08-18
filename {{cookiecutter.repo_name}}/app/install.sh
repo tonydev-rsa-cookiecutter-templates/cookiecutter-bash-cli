@@ -17,10 +17,6 @@ if [[ ! -f "$APP_DIR/app/.bash_cli" ]]; then
 fi
 
 NAME="$1"
-FOLDER="${2-"/usr/bin"}"
-
-ln -s "$APP_DIR/cli" "$FOLDER/$NAME"
-cat > "/etc/bash_completion.d/$NAME" <<EOC
-source "$APP_DIR/complete"
-complete -F _bash_cli $NAME
-EOC
+FOLDER="${2-"/usr/local/bin"}"
+mkdir -p "$FOLDER" 
+sudo ln -s "$APP_DIR/cli" "$FOLDER/$NAME"

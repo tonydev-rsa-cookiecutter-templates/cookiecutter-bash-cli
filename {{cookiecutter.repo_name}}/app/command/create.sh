@@ -31,6 +31,7 @@ CMD_NAME="${!#}"
 if [[ -f "$CMD_DIR/$CMD_NAME" ]]; then
     >&2 echo -e "\033[31mThat command already exists\033[39m"
     >&2 echo "We'd rather not overwrite commands you've already created."
+    code -a $CMD_DIR/$CMD_NAME" || nano $CMD_DIR/$CMD_NAME" 
     exit 1
 fi
 
